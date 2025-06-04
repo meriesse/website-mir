@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Richiedi un preventivo | De Salvia Mir</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="img/logo.png" alt="Logo De Salvia Mir" class="logo-img" />
+      <span><strong>De Salvia Mir Costruzioni</strong></span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Progetti</a>
+      <a href="preventivo.html" class="active">Preventivo</a>
+    </nav>
+  </header>
+
+  <main style="padding: 60px;">
+    <h1 style="text-align:center; margin-bottom: 40px;">Richiedi un preventivo</h1>
+    <form class="quote-form" style="max-width: 600px; margin: 0 auto;">
+      <div style="margin-bottom: 20px;">
+        <label for="nome">Nome e Cognome:</label><br />
+        <input type="text" id="nome" name="nome" required style="width: 100%; padding: 10px; margin-top: 5px;" />
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-top: 5px;" />
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label for="progetto">Descrizione del progetto:</label><br />
+        <textarea id="progetto" name="progetto" rows="6" required style="width: 100%; padding: 10px; margin-top: 5px;"></textarea>
+      </div>
+      <button type="submit">Invia richiesta</button>
+    </form>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Contatti</h3>
+        <p><i class="fas fa-phone"></i> +39 333 123 4567</p>
+        <p><i class="fas fa-envelope"></i> info@desalviamir.it</p>
+        <p><i class="fas fa-map-marker-alt"></i> Via Roma, 123 - Bari</p>
+      </div>
+      <div class="footer-section">
+        <h3>Link rapidi</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Progetti</a></li>
+          <li><a href="preventivo.html">Preventivo</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Seguici</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 De Salvia Mir Costruzioni S.R.L. - Tutti i diritti riservati
+    </div>
+  </footer>
+
+</body>
+</html>
