@@ -121,7 +121,7 @@ document.getElementById("preventivoForm").addEventListener("submit", function(e)
 /* popup */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const openPopup = document.getElementById("openPopup");
+  const preventivoTriggers = document.querySelectorAll(".preventivo-trigger");
   const popupOverlay = document.getElementById("popupForm");
   const closeBtn = document.getElementById("closePopup");
   const form = popupOverlay ? popupOverlay.querySelector("form") : null;
@@ -133,12 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
     popupOverlay.style.display = "none";
   }
 
-  if (openPopup && popupOverlay && closeBtn && form) {
-    openPopup.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (confirmationMessage) confirmationMessage.style.display = "none";
-      popupOverlay.style.display = "flex";
-    });
+  if (preventivoTriggers.length && popupOverlay && closeBtn && form) {
+    preventivoTriggers.forEach(trigger => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (confirmationMessage) confirmationMessage.style.display = "none";
+        popupOverlay.style.display = "flex";
+      });
+    });  
 
     closeBtn.addEventListener("click", () => {
       resetFormAndClose();

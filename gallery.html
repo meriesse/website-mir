@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Progetti | De Salvia Mir</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Salvia Mir Costruzioni</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9998e5dc86.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo-container">
-      <img src="img/logo.png" alt="Logo De Salvia Mir" class="logo-img" />
-      <span><strong>De Salvia Mir Costruzioni</strong></span>
+      <img href="index.html" src="img/logo.png" alt="Logo De Salvia Mir" class="logo-img" />
     </div>
     <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="gallery.html" class="active">Progetti</a>
-      <a href="preventivo.html">Preventivo</a>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="gallery.html" class="nav-link">Progetti</a>
+      <a href="#" class="nav-link preventivo-trigger">Richiedi Preventivo</a>
     </nav>
   </header>
 
@@ -26,34 +30,77 @@
     <div id="gallery" class="gallery-container"></div>
   </main>
 
-  <footer class="main-footer">
+   <!-- FOOTER -->
+   <footer class="main-footer">
     <div class="footer-container">
-      <div class="footer-section">
-        <h3>Contatti</h3>
-        <p><i class="fas fa-phone"></i> +39 333 123 4567</p>
-        <p><i class="fas fa-envelope"></i> info@desalviamir.it</p>
-        <p><i class="fas fa-map-marker-alt"></i> Via Roma, 123 - Bari</p>
-      </div>
+      <!-- Sezione Informazioni -->
       <div class="footer-section">
         <h3>Link rapidi</h3>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="gallery.html">Progetti</a></li>
-          <li><a href="#">Preventivo</a></li>
+          <li><a href="galleria.html">Progetti</a></li>
+          <li><a href="#">Richiedi Preventivo</a></li>
         </ul>
       </div>
+
+      <!-- Sezione Contatti -->
+      <div class="footer-section">
+        <h3>Contatti</h3>
+        <p><i class="fas fa-phone-alt"></i> +39 123 456 7890</p>
+        <p><i class="fas fa-envelope"></i> info@desalviamir.it</p>
+        <p><i class="fas fa-map-marker-alt"></i> Via Ponte Lungo, 22 Manfredonia (FG)</p>
+      </div>
+
+      <!-- Sezione Social -->
       <div class="footer-section">
         <h3>Seguici</h3>
         <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/DesalviaMIRcostruzioni/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/desalviamir1/?hl=it"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
-      &copy; 2025 De Salvia Mir Costruzioni S.R.L. - Tutti i diritti riservati
+      <p>&copy; 2025 De Salvia Mir. Tutti i diritti riservati.</p>
     </div>
   </footer>
 
+  <div id="popupForm" class="popup-overlay">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <form action="https://formspree.io/f/xgvyedkl" method="POST" id="preventivoForm">
+        <h2>Richiedi un Preventivo</h2>
+  
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+  
+        <label for="cognome">Cognome</label>
+        <input type="text" id="cognome" name="cognome" required>
+  
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+  
+        <label for="telefono">Recapito telefonico</label>
+        <input type="tel" id="telefono" name="telefono">
+  
+        <label for="tipo">Tipo di richiesta</label>
+        <select id="tipo" name="tipo" required>
+          <option value="" disabled selected>Seleziona un'opzione</option>
+          <option value="ristrutturazione">Ristrutturazione</option>
+          <option value="manutenzione">Manutenzione</option>
+          <option value="altro">Altro</option>
+        </select>
+         
+        <button type="submit">Invia</button>
+        <p id="form-messaggio" class="form-success" style="display:none;"></p>
+      </form>
+      <div class="confirmation-message" style="display:none; color: green; margin-top: 1rem;"></div>
+
+    </div>
+  </div>
+
+
+  <script src="script.js" defer></script>  
 </body>
 </html>
