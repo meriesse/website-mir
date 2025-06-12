@@ -7,10 +7,10 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+  
 }
 
 /* Aggiunge spazio visivo prima del footer */
@@ -20,21 +20,29 @@ main.contenuto {
   background: transparent; /* assicurati non ci sia sfondo */
 }
 
-
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 /* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: padding 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px 5%;
   z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
 }
 .logo {
   font-size: 1.8rem;
@@ -128,6 +136,7 @@ main.contenuto {
   background-image: url('img/img1.jpg');
   background-size: cover;
   background-position: center;
+  
   opacity: 0.7;
 }
 
@@ -348,7 +357,7 @@ main.contenuto {
   background-color: #256528;
 }
 
-.close-btn {
+.close-btn-prev {
   position: absolute;
   top: 15px;
   right: 20px;
@@ -613,60 +622,6 @@ main.contenuto {
   object-fit: cover;
 }
 
-/* ===== STATUS SINCRONIZZAZIONE ===== 
-.sync-status {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: #2ecc71;
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 50px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-.onedrive-icon {
-  width: 20px;
-  height: 20px;
-  background: #0078d4;
-  border-radius: 3px;
-  position: relative;
-}
-
-.onedrive-icon::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  background: white;
-  border-radius: 2px;
-}
-
-/* ===== STATO VUOTO ===== 
-.empty-state {
-  text-align: center;
-  padding: 3rem;
-  color: #7f8c8d;
-}
-
-.empty-state img {
-  width: 100px;
-  height: 100px;
-  opacity: 0.5;
-  margin-bottom: 1rem;
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -699,17 +654,49 @@ main.contenuto {
   }
 }
 
-/* Messaggio offline */
-#offlineBanner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #ffcc00;
-  color: #000;
+/*CARD*/
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 25px;
   text-align: center;
-  padding: 10px;
-  font-weight: bold;
-  z-index: 9999;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid #eee;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: #4a7c59;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.15);
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #2c5530;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
 }

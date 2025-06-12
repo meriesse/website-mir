@@ -24,20 +24,65 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>De Salvia Mir Costruzioni</h1>
-      <p>Costruzioni e ristrutturazioni su misura</p>
-      <a href="#" class="btn-cta preventivo-trigger ">Richiedi un preventivo</a>
+ <!-- HERO SECTION -->
+ 
+ <section class="hero" id="home">
+  <div class="floating-element">
+    <i class="fas fa-hammer" style="font-size: 4rem; color: rgba(255,255,255,0.1);"></i>
+  </div>
+  <div class="floating-element">
+    <i class="fas fa-home" style="font-size: 3rem; color: rgba(255,255,255,0.1);"></i>
+  </div>
+  <div class="floating-element">
+    <i class="fas fa-tools" style="font-size: 3.5rem; color: rgba(255,255,255,0.1);"></i>
+  </div>
+
+  <div class="hero-content">
+    <h1>De Salvia Mir Costruzioni</h1>
+    <p>Costruzioni e ristrutturazioni su misura per realizzare i tuoi sogni abitativi</p>
+    <a href="#" class="btn-cta preventivo-trigger">Richiedi un preventivo gratuito</a>
+  </div>
+  
+  <div class="scroll-indicator">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+
+  <!-- MAIN CONTENT -->
+<main class="main-content">
+
+  <!-- SERVIZI SECTION -->
+  <section class="section" id="servizi">
+    <div class="services-grid">
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-paint-roller"></i>
+        </div>
+        <h3>Ristrutturazioni Complete</h3>
+        <p>Trasformiamo i tuoi spazi abitativi o commerciali con soluzioni su misura, materiali di qualità e un servizio chiavi in mano.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-hard-hat"></i>
+        </div>
+        <h3>Costruzioni Nuove</h3>
+        <p>Dalla progettazione alla realizzazione, ci occupiamo di nuove costruzioni residenziali, industriali e commerciali.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>Manutenzioni e Riparazioni</h3>
+        <p>Garantiamo interventi rapidi ed efficaci per la manutenzione ordinaria e straordinaria di ogni tipo di edificio.</p>
+      </div>
+
     </div>
   </section>
-
-  <!-- AGGIUNGI CONTENUTO SE NECESSARIO -->
-  <main class="contenuto">
-    <!-- Placeholder di esempio -->
-    <div class="spazio-contenuto"></div>
-  </main>
+</main>
 
 <!-- FOOTER -->
 <footer class="main-footer">
@@ -59,20 +104,31 @@
       </ul>
     </div>
 
-    <!-- Contatti -->
+    <!-- Servizi -->
     <div class="footer-section">
-      <h3>Contatti</h3>
-      <p><i class="fas fa-phone-alt"></i> <a href="tel:+391234567890">+39 123 456 7890</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:info@desalviamir.it">info@desalviamir.it</a></p>
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
-        <a href="https://www.google.com/maps?q=Via+Ponte+Lungo,+22,+Manfredonia" target="_blank" rel="noopener noreferrer">
-          Via Ponte Lungo, 22 Manfredonia (FG)
-        </a>
-      </p>
+      <h3>Servizi</h3>
+      <ul>
+        <li><a href="#">Ristrutturazioni</a></li>
+        <li><a href="#">Costruzioni Nuove</a></li>
+        <li><a href="#">Manutenzioni</a></li>
+        <li><a href="#">Consulenze</a></li>
+      </ul>
     </div>
 
-    <!-- Social -->
+    <!-- Contatti -->
+     <div class="footer-section">
+        <h3>Contatti</h3>
+        <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: #4a7c59;"></i> 
+           <a href="tel:+391234567890">+39 123 456 7890</a></p>
+        <p><i class="fas fa-envelope" style="margin-right: 8px; color: #4a7c59;"></i> 
+           <a href="mailto:info@desalviamir.it">info@desalviamir.it</a></p>
+        <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #4a7c59;"></i>
+           <a href="https://www.google.com/maps?q=Via+Ponte+Lungo,+22,+Manfredonia" target="_blank" rel="noopener noreferrer">
+             Via Ponte Lungo, 22<br>Manfredonia (FG)
+           </a></p>
+      </div>
+
+         <!-- Social -->
     <div class="footer-section">
       <h3>Seguici</h3>
       <div class="social-icons">
@@ -81,47 +137,45 @@
       </div>
     </div>
   </div>
+  </div>
 
   <div class="footer-bottom">
     <p>&copy; 2025 <strong>De Salvia Mir Costruzioni</strong>. Tutti i diritti riservati.</p>
   </div>
 </footer>
 
-  <div id="popupForm" class="popup-overlay">
+   <!-- POPUP FORM -->
+   <div id="popupForm" class="popup-overlay">
     <div class="popup-content">
-      <span class="close-btn" id="closePopup">&times;</span>
+      <span class="close-btn-prev" id="closePopup">&times;</span>
       <form action="https://formspree.io/f/xgvyedkl" method="POST" id="preventivoForm">
         <h2>Richiedi un Preventivo</h2>
-  
-        <label for="nome">Nome</label>
+
+        <label for="nome">Nome *</label>
         <input type="text" id="nome" name="nome" required>
-  
-        <label for="cognome">Cognome</label>
+
+        <label for="cognome">Cognome *</label>
         <input type="text" id="cognome" name="cognome" required>
-  
-        <label for="email">Email</label>
+
+        <label for="email">Email *</label>
         <input type="email" id="email" name="email" required>
-  
+
         <label for="telefono">Recapito telefonico</label>
         <input type="tel" id="telefono" name="telefono">
-  
-        <label for="tipo">Tipo di richiesta</label>
+
+        <label for="tipo">Tipo di richiesta *</label>
         <select id="tipo" name="tipo" required>
           <option value="" disabled selected>Seleziona un'opzione</option>
           <option value="ristrutturazione">Ristrutturazione</option>
+          <option value="costruzione">Costruzione Nuova</option>
           <option value="manutenzione">Manutenzione</option>
           <option value="altro">Altro</option>
-        </select>
-         
-        <button type="submit">Invia</button>
-        <p id="form-messaggio" class="form-success" style="display:none;"></p>
+        </select>         
+        <button type="submit">Invia Richiesta</button>
+        <p id="form-messaggio" class="form-success" style="display:none; color: #4a7c59; margin-top: 15px; text-align: center;"></p>
       </form>
-      <div class="confirmation-message" style="display:none; color: green; margin-top: 1rem;"></div>
-
     </div>
   </div>
-
-
   <script src="script.js" defer></script>  
 </body>
 </html>
