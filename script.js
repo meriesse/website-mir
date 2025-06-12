@@ -1,187 +1,204 @@
-/*
-// Carica dinamicamente i progetti da data.json
-fetch('data.json')
-  .then(response => {
-    if (!response.ok) throw new Error("Errore nel caricamento del file JSON.");
-    return response.json();
-  })
-  .then(data => {
-    const gallery = document.getElementById('gallery');
-    if (!gallery) return;
+let projectsData = [];
 
-    data.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'card';
+  async function fetchProjects() {
+    try {
+      const response = await fetch("progetti.json");
+      if (!response.ok) throw new Error("Errore di rete");
+      projectsData = await response.json();
+      loadProjects();
+    } catch (error) {
+      console.error("Errore nel caricamento dei progetti:", error);
+      const projectsGrid = document.getElementById("projectsGrid");
+      if (projectsGrid) {
+        projectsGrid.innerHTML = `
+          <div class="empty-state">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">❌</div>
+            <h3>Errore nel caricamento</h3>
+            <p>Verifica la connessione a Internet e ricarica la pagina.</p>
+          </div>
+        `;
+      }
+    }
+  }
 
-      const img = document.createElement('img');
-      img.src = item.url;
-      img.alt = item.descrizione;
+  function loadProjects() {
+    const projectsGrid = document.getElementById("projectsGrid");
+    if (!projectsGrid) return;
 
-      const descr = document.createElement('p');
-      descr.textContent = item.descrizione;
+    if (projectsData.length === 0) {
+      projectsGrid.innerHTML = `
+        <div class="empty-state">
+          <div style="font-size: 4rem; margin-bottom: 1rem;">🏗️</div>
+          <h3>Nessun progetto disponibile</h3>
+          <p>I progetti verranno caricati automaticamente.</p>
+        </div>
+      `;
+      return;
+    }
 
-      card.appendChild(img);
-      card.appendChild(descr);
-      gallery.appendChild(card);
+    projectsGrid.innerHTML = projectsData.map(project => createProjectCard(project)).join('');
+  }
+
+  function createProjectCard(project) {
+    return `
+      <div class="project-card" onclick="openProjectModal(${project.id})">
+        <div class="project-thumbnail">
+          <img src="${project.thumbnail}" alt="${project.title}" loading="lazy">
+          <div class="project-overlay">
+            <button class="view-btn">Visualizza Progetto</button>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">${project.title}</h3>
+          <div class="project-meta">
+            <span>📍 ${project.location}</span>
+            <span>📅 ${project.year}</span>
+          </div>
+          <p class="project-description">${project.description}</p>
+          <div class="project-stats">
+            <span class="stat">🖼️ ${project.images} foto</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function openProjectModal(projectId) {
+    const project = projectsData.find(p => p.id === projectId);
+    if (!project) return;
+
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalSubtitle').textContent = `${project.location} • ${project.year}`;
+    document.getElementById('modalDescription').innerHTML = `
+      <p><strong>Descrizione:</strong> ${project.description}</p>
+      <p><strong>Categoria:</strong> ${project.category}</p>
+    `;
+
+    const imageGallery = document.getElementById('imageGallery');
+    imageGallery.innerHTML = project.gallery.map(image => `
+      <div class="gallery-image" onclick="openImageViewer('${image}')">
+        <img src="${image}" alt="Immagine progetto" loading="lazy">
+      </div>
+    `).join('');
+
+    document.getElementById('projectModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('projectModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function openImageViewer(imageSrc) {
+    window.open(imageSrc, '_blank');
+  }
+
+  function setupEventListeners() {
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
     });
-  })
-  .catch(error => {
-    console.error("Errore:", error);
-    const gallery = document.getElementById('gallery');
-    if (gallery) {
-      gallery.innerHTML = "<p>Impossibile caricare i progetti al momento. Riprova più tardi.</p>";
-    }
-  });
 
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
 
-// SLIDESHOW (se presente nel sito)
-let slideIndex = 1;
-let slideInterval;
-
-function showSlides(n) {
-  const slides = document.querySelectorAll(".mySlides");
-  const dots = document.querySelectorAll(".dot");
-
-  if (slides.length === 0) return;
-
-  if (n > slides.length) slideIndex = 1;
-  if (n < 1) slideIndex = slides.length;
-
-  slides.forEach(slide => slide.style.display = "none");
-  dots.forEach(dot => dot.classList.remove("active"));
-
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].classList.add("active");
-}
-
-function plusSlides(n) {
-  clearInterval(slideInterval);
-  showSlides(slideIndex += n);
-  startAutoSlide();
-}
-
-function currentSlide(n) {
-  clearInterval(slideInterval);
-  showSlides(slideIndex = n);
-  startAutoSlide();
-}
-
-function startAutoSlide() {
-  slideInterval = setInterval(() => {
-    slideIndex++;
-    showSlides(slideIndex);
-  }, 4000);
-}
-
-// Inizializza slideshow se presente
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.querySelectorAll(".mySlides").length > 0) {
-    showSlides(slideIndex);
-    startAutoSlide();
-  }
-
-*/
-
-  // Highlight the active navigation link
-const currentPath = window.location.pathname.split("/").pop();
-const links = document.querySelectorAll(".nav-link");
-
-links.forEach(link => {
-  if (link.getAttribute("href") === currentPath) {
-    link.classList.add("active");
-  }
-});
-
-/* Messaggio di conferma */
-
-document.getElementById("preventivoForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const form = this;
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: "POST",
-    body: data,
-    headers: {
-      'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      document.getElementById("form-messaggio").style.display = "block";
-      form.reset();
-    } else {
-      alert("Errore durante l'invio. Riprova.");
-    }
-  }).catch(error => {
-    alert("Errore di connessione. Riprova.");
-  });
-});
-
-
-/* popup */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const preventivoTriggers = document.querySelectorAll(".preventivo-trigger");
-  const popupOverlay = document.getElementById("popupForm");
-  const closeBtn = document.getElementById("closePopup");
-  const form = popupOverlay ? popupOverlay.querySelector("form") : null;
-  const confirmationMessage = popupOverlay ? popupOverlay.querySelector(".confirmation-message") : null;
-
-  function resetFormAndClose() {
-    if (form) form.reset();
-    if (confirmationMessage) confirmationMessage.style.display = "none";
-    popupOverlay.style.display = "none";
-  }
-
-  if (preventivoTriggers.length && popupOverlay && closeBtn && form) {
-    preventivoTriggers.forEach(trigger => {
-      trigger.addEventListener("click", (e) => {
+    // Form preventivo
+    const form = document.getElementById("preventivoForm");
+    if (form) {
+      form.addEventListener("submit", function(e) {
         e.preventDefault();
-        if (confirmationMessage) confirmationMessage.style.display = "none";
-        popupOverlay.style.display = "flex";
+        const data = new FormData(form);
+        fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            document.getElementById("form-messaggio").style.display = "block";
+            form.reset();
+          } else {
+            alert("Errore durante l'invio.");
+          }
+        }).catch(() => {
+          alert("Errore di connessione.");
+        });
       });
-    });  
+    }
 
-    closeBtn.addEventListener("click", () => {
-      resetFormAndClose();
-    });
+    // Popup preventivo
+    const popupOverlay = document.getElementById("popupForm");
+    const closeBtn = document.getElementById("closePopup");
+    const preventivoTriggers = document.querySelectorAll(".preventivo-trigger");
+    const confirmationMessage = popupOverlay ? popupOverlay.querySelector(".confirmation-message") : null;
 
-    popupOverlay.addEventListener("click", (e) => {
-      if (e.target === popupOverlay) {
-        resetFormAndClose();
+    function resetFormAndClose() {
+      if (form) form.reset();
+      if (confirmationMessage) confirmationMessage.style.display = "none";
+      popupOverlay.style.display = "none";
+    }
+
+    if (popupOverlay && closeBtn) {
+      preventivoTriggers.forEach(trigger => {
+        trigger.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (confirmationMessage) confirmationMessage.style.display = "none";
+          popupOverlay.style.display = "flex";
+        });
+      });
+
+      closeBtn.addEventListener("click", resetFormAndClose);
+      popupOverlay.addEventListener("click", e => {
+        if (e.target === popupOverlay) resetFormAndClose();
+      });
+    }
+
+    // Navbar scroll shrink
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('shrink', window.scrollY > 50);
+      });
+    }
+
+    // Highlight active nav link
+    const currentPath = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-link").forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
       }
     });
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      // Qui puoi inserire chiamata AJAX/fetch per inviare dati al server
+    // Slideshow
+    let slideIndex = 1;
+    let slideInterval;
+    const slides = document.querySelectorAll(".mySlides");
 
-      // Mostra messaggio di conferma dentro il popup
-      if (confirmationMessage) {
-        confirmationMessage.style.display = "block";
-        confirmationMessage.textContent = "Richiesta inviata con successo!";
-      }
+    function showSlides(n) {
+      const dots = document.querySelectorAll(".dot");
+      if (slides.length === 0) return;
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      slides.forEach(s => s.style.display = "none");
+      dots.forEach(d => d.classList.remove("active"));
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].classList.add("active");
+    }
 
-      // Pulisci i campi, ma NON chiudere subito il popup così l'utente vede la conferma
-      form.reset();
+    function startAutoSlide() {
+      slideInterval = setInterval(() => {
+        slideIndex++;
+        showSlides(slideIndex);
+      }, 4000);
+    }
 
-      // Opzionale: chiudi il popup dopo qualche secondo
-      setTimeout(() => {
-        resetFormAndClose();
-      }, 3000);
-    });
-
-  } else {
-    console.warn("Elementi del popup o form non trovati nel DOM.");
+    if (slides.length > 0) {
+      showSlides(slideIndex);
+      startAutoSlide();
+    }
   }
-});
 
-/*Scroll navbar*/
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.classList.add('shrink');
-  } else {
-    navbar.classList.remove('shrink');
-  }
-});
+  document.addEventListener('DOMContentLoaded', async () => {
+    await fetchProjects();
+    setupEventListeners();
+  });

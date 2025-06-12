@@ -16,55 +16,85 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo-container">
-      <img href="index.html" src="img/logo.png" alt="Logo De Salvia Mir" class="logo-img" />
+      <a href="index.html">
+        <img src="img/logo.png" alt="Logo De Salvia Mir" class="logo-img" />
+      </a>
     </div>
     <nav class="nav-links">
       <a href="index.html" class="nav-link">Home</a>
       <a href="gallery.html" class="nav-link">Progetti</a>
-      <a href="#" class="nav-link preventivo-trigger">Richiedi Preventivo</a>
+      <a href="#" class="preventivo-trigger">Richiedi un preventivo</a>
     </nav>
   </header>
-
-  <main class="contenuto" style="padding: 60px;">
-    <h1 style="text-align:center; margin-bottom: 40px;">I nostri progetti</h1>
-    <div id="gallery" class="gallery-container"></div>
-  </main>
-
-   <!-- FOOTER -->
-   <footer class="main-footer">
-    <div class="footer-container">
-      <!-- Sezione Informazioni -->
-      <div class="footer-section">
-        <h3>Link rapidi</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="galleria.html">Progetti</a></li>
-          <li><a href="#">Richiedi Preventivo</a></li>
-        </ul>
-      </div>
-
-      <!-- Sezione Contatti -->
-      <div class="footer-section">
-        <h3>Contatti</h3>
-        <p><i class="fas fa-phone-alt"></i> +39 123 456 7890</p>
-        <p><i class="fas fa-envelope"></i> info@desalviamir.it</p>
-        <p><i class="fas fa-map-marker-alt"></i> Via Ponte Lungo, 22 Manfredonia (FG)</p>
-      </div>
-
-      <!-- Sezione Social -->
-      <div class="footer-section">
-        <h3>Seguici</h3>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/DesalviaMIRcostruzioni/"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/desalviamir1/?hl=it"><i class="fab fa-instagram"></i></a>
+        <div class="projects-grid" id="projectsGrid">
+            <!-- I progetti verranno caricati dinamicamente -->
         </div>
-      </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2025 De Salvia Mir. Tutti i diritti riservati.</p>
+    <!-- Modal per visualizzare le immagini del progetto -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Titolo Progetto</h2>
+                <p class="modal-subtitle" id="modalSubtitle">Descrizione progetto</p>
+            </div>
+            <div class="modal-body">
+                <div id="modalDescription"></div>
+                <div class="image-gallery" id="imageGallery">
+                    <!-- Le immagini verranno caricate dinamicamente -->
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="footer-container">
+    
+    <!-- Logo & Nome -->
+    <div class="footer-section logo-footer">
+      <img src="img/logo.png" alt="Logo De Salvia Mir" class="footer-logo" />
+      <p class="slogan">Costruzioni e ristrutturazioni su misura</p>
+    </div>
+
+    <!-- Link rapidi -->
+    <div class="footer-section">
+      <h3>Link rapidi</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Progetti</a></li>
+        <li><a href="#" class="preventivo-trigger">Richiedi Preventivo</a></li>
+      </ul>
+    </div>
+
+    <!-- Contatti -->
+    <div class="footer-section">
+      <h3>Contatti</h3>
+      <p><i class="fas fa-phone-alt"></i> <a href="tel:+391234567890">+39 123 456 7890</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:info@desalviamir.it">info@desalviamir.it</a></p>
+      <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://www.google.com/maps?q=Via+Ponte+Lungo,+22,+Manfredonia" target="_blank" rel="noopener noreferrer">
+          Via Ponte Lungo, 22 Manfredonia (FG)
+        </a>
+      </p>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-section">
+      <h3>Seguici</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/DesalviaMIRcostruzioni/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/desalviamir1/?hl=it" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 <strong>De Salvia Mir Costruzioni</strong>. Tutti i diritti riservati.</p>
+  </div>
+</footer>
 
   <div id="popupForm" class="popup-overlay">
     <div class="popup-content">
@@ -99,8 +129,6 @@
 
     </div>
   </div>
-
-
-  <script src="script.js" defer></script>  
+  <script src="script.js" defer></script>
 </body>
 </html>
