@@ -864,15 +864,16 @@ main.contenuto {
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: #333;
 }
 
-/* Responsive */
+/* Mobile styles */
 @media (max-width: 768px) {
   .burger-menu {
     display: block;
+    z-index: 1001;
   }
 
   .nav-links {
@@ -881,11 +882,10 @@ main.contenuto {
     position: absolute;
     top: 100%;
     right: 5%;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     padding: 1rem;
-    z-index: 999;
   }
 
   .nav-links.show {
@@ -898,6 +898,5 @@ main.contenuto {
 
   .navbar {
     flex-wrap: wrap;
-    align-items: center;
   }
 }
