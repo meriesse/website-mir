@@ -275,7 +275,9 @@ function initializeNavigation() {
 }
 document.addEventListener('DOMContentLoaded', () => {
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-link');
+  //const navLinks = document.querySelectorAll('.nav-link');
+  const burger = document.getElementById("burgerBtn");
+  const navLinks = document.getElementById("navLinks");
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
@@ -284,6 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       link.classList.remove('active');
     }
+  });
+  burger.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
   });
 });
 

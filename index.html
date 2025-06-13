@@ -16,16 +16,27 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo-container">
-      <img href="index.html" src="img/logo.png" alt="Logo De Salvia Mir" class="logo-img" />
+      <a href="index.html">
+        <img src="img/logo.png" alt="Logo De Salvia Mir" class="logo-img" />
+      </a>
     </div>
-    <nav class="nav-links">
+  
+    <!-- Icona burger -->
+    <button class="burger-menu" id="burgerBtn" aria-label="Apri menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  
+    <!-- Link di navigazione -->
+    <nav class="nav-links" id="navLinks">
       <a href="index.html" class="nav-link">Home</a>
       <a href="gallery.html" class="nav-link">Progetti</a>
+      <a href="#" class="nav-link preventivo-trigger">Richiedi un preventivo</a>
     </nav>
   </header>
-
+  <div class="navbar-spacer"></div>
  <!-- HERO SECTION -->
- 
+   <!-- MAIN CONTENT -->
+<main class="main-content">
  <section class="hero" id="home">
   <div class="floating-element">
     <i class="fas fa-hammer" style="font-size: 4rem; color: rgba(255,255,255,0.1);"></i>
@@ -48,9 +59,6 @@
   </div>
 </section>
 
-
-  <!-- MAIN CONTENT -->
-<main class="main-content">
   <div class="content-wrapper">
   <!-- SERVIZI SECTION -->
   <section class="section" id="servizi">
