@@ -1,91 +1,94 @@
 [
   {
     "id": 1,
-    "title": "Villa Moderna - Residenza Privata",
-    "description": "Ristrutturazione completa di villa unifamiliare con focus su efficienza energetica e design contemporaneo.",
-    "location": "Bari, BA",
-    "year": "2024",
+    "title": "Finitura Facciata",
+    "description": "Finitura di facciata con tonachino",
+    "location": "Pugnochiuso, FG",
+    "year": "2025",
     "category": "Residenziale",
-    "images": 15,
-    "thumbnail": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&h=300&fit=crop",
+    "images": 4,
+    "thumbnail": "img/lavori/facc.jpeg",
     "gallery": [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop"
+      "img/lavori/facc.jpeg",
+      "img/lavori/facc1.jpeg",
+      "img/lavori/facc2.jpeg",
+      "img/lavori/facc3.jpeg"
     ]
   },
   {
     "id": 2,
-    "title": "Complesso Commerciale - Centro Città",
-    "description": "Realizzazione di complesso commerciale polifunzionale con spazi retail e uffici.",
-    "location": "Monopoli, BA",
-    "year": "2024",
-    "category": "Commerciale",
-    "images": 22,
-    "thumbnail": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop",
+    "title": "Copertura in cartongesso",
+    "description": "Copertura in cartongesso di tubature e impianti",
+    "location": "Manfredonia, FG",
+    "year": "2025",
+    "category": "Residenziale",
+    "images": 10,
+    "thumbnail": "img/lavori/gesso.jpeg",
     "gallery": [
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop"
+      "img/lavori/gesso.jpeg",
+      "img/lavori/gesso1.jpeg",
+      "img/lavori/gesso2.jpeg",
+      "img/lavori/gesso3.jpeg",
+      "img/lavori/gesso4.jpeg",
+      "img/lavori/gesso5.jpeg",
+      "img/lavori/gesso6.jpeg",
+      "img/lavori/gesso7.jpeg",
+      "img/lavori/gesso8.jpeg",
+      "img/lavori/gesso9.jpeg"
     ]
   },
   {
     "id": 3,
-    "title": "Restauro Palazzo Storico",
-    "description": "Restauro conservativo di palazzo settecentesco con recupero delle tecniche tradizionali.",
-    "location": "Lecce, LE",
-    "year": "2023",
-    "category": "Restauro",
-    "images": 31,
-    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop",
+    "title": "Realizzazione di pedana in legno",
+    "description": "Realizzazione di pedana in legno per giardino esterno",
+    "location": "Pugnochiuso, FG",
+    "year": "2025",
+    "category": "Residenziale",
+    "images": 7,
+    "thumbnail": "img/lavori/pedane.jpeg",
     "gallery": [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=400&h=300&fit=crop"
+      "img/lavori/pedane.jpeg",
+      "img/lavori/pedane1.jpeg",
+      "img/lavori/pedane2.jpeg",
+      "img/lavori/pedane3.jpeg",
+      "img/lavori/pedane4.jpeg",
+      "img/lavori/pedane5.jpeg",
+      "img/lavori/pedane6.jpeg"
     ]
   },
   {
     "id": 4,
-    "title": "Condominio Eco-Sostenibile",
-    "description": "Costruzione di condominio a basso impatto ambientale con tecnologie innovative.",
-    "location": "Brindisi, BR",
-    "year": "2023",
+    "title": "Rivestimento scale interne",
+    "description": "Realizzazione di rivestimento scale interne",
+    "location": "Pugnochiuso, FG",
+    "year": "2025",
     "category": "Residenziale",
-    "images": 18,
-    "thumbnail": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=500&h=300&fit=crop",
+    "images": 7,
+    "thumbnail": "img/lavori/scale.jpeg",
     "gallery": [
-      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?w=400&h=300&fit=crop"
+      "img/lavori/scale.jpeg",
+      "img/lavori/scale1.jpeg",
+      "img/lavori/scale2.jpeg",
+      "img/lavori/scale3.jpeg",
+      "img/lavori/scale4.jpeg",
+      "img/lavori/scale5.jpeg",
+      "img/lavori/scale6.jpeg"
     ]
   },
   {
     "id": 5,
-    "title": "Ristrutturazione Industriale",
-    "description": "Conversione di capannone industriale in spazio polifunzionale per eventi.",
-    "location": "Taranto, TA",
-    "year": "2023",
-    "category": "Industriale",
-    "images": 12,
-    "thumbnail": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&h=300&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1541976590-713941681591?w=400&h=300&fit=crop"
-    ]
-  },
-  {
-    "id": 6,
-    "title": "Villa con Piscina - Vista Mare",
-    "description": "Progettazione e realizzazione di villa di lusso con piscina e giardino panoramico.",
-    "location": "Polignano a Mare, BA",
-    "year": "2024",
+    "title": "Copertura tetto",
+    "description": "Copertura tetto con utilizzo di tegole",
+    "location": "Pugnochiuso, FG",
+    "year": "2025",
     "category": "Residenziale",
-    "images": 25,
-    "thumbnail": "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=500&h=300&fit=crop",
+    "images": 4,
+    "thumbnail": "img/lavori/tetto.jpeg",
     "gallery": [
-      "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=300&fit=crop"
+      "img/lavori/tetto.jpeg",
+      "img/lavori/tetto1.jpeg",
+      "img/lavori/tetto2.jpeg",
+      "img/lavori/tetto3.jpeg"
     ]
   }
 ]

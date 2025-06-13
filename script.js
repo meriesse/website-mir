@@ -104,7 +104,21 @@ function closeProjectModal() {
 }
 
 function openImageViewer(imageSrc) {
-  window.open(imageSrc, '_blank');
+  const modal = document.getElementById('imageViewerModal');
+  const img = document.getElementById('imageViewerImg');
+  if (modal && img) {
+    img.src = imageSrc;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeImageViewer() {
+  const modal = document.getElementById('imageViewerModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
 }
 
 // ============================================
@@ -197,6 +211,12 @@ function initializePopupForm() {
     if (e.key === 'Escape') {
       if (popup.style.display === 'flex') closePopup();
       if (document.getElementById('projectModal')?.style.display === 'block') closeProjectModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeImageViewer();
     }
   });
 }
